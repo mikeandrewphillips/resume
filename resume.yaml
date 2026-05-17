@@ -1,9 +1,17 @@
-# Single source of truth for the resume.
-# Edit this file, then run `make all` to regenerate every format.
+# Master CV - the COMPLETE record. Never trim this file.
 #
-# Layout note: `education`, `certifications`, and `technology` render in the
-# left column of the LaTeX/PDF (Deedy) layout; `experience` renders in the
-# right column. Markdown and DOCX render everything in a single linear flow.
+# Which elements appear in a given resume is decided by the variant files in
+# variants/ (e.g. variants/networking.yaml). Tagging model:
+#
+#   * A plain-string bullet/item, or a group with no `tags:`, is CORE and
+#     always included in every variant.
+#   * A bullet/item written as {text, tags:[...]} or a group with `tags:[...]`
+#     is included only when the variant selects one of those tags.
+#   * The `full` variant selects nothing special and therefore includes
+#     everything -> byte-identical to the original resume.
+#
+# Tag vocabulary in use: networking, devops, cloud, leadership, product,
+# teaching, security.
 
 name: Michael Phillips
 
@@ -22,16 +30,20 @@ education:
 
 certifications:
   - name: Azure
+    tags: [cloud, devops]
     items:
       - "AZ-900"
       - "Credential ID I231-4634"
   - name: GitHub
+    tags: [devops]
     items:
       - "GitHub Fundamentals - Feb 2024"
   - name: AWS
+    tags: [cloud, devops]
     items:
       - "Studying for Solutions Architect Associate"
   - name: MikroTik
+    tags: [networking]
     items:
       - "Wireless Engineer (MTCWE)"
       - "# 2110WE6906"
@@ -48,12 +60,14 @@ technology:
       - "Courses taken while at Auburn:"
       - "Fortran • Java • R"
   - name: AWS
+    tags: [cloud, devops]
     items:
       - "Lambda • DynamoDB"
       - "CDK • Terraform • ElastiCache"
       - "S3 • EC2 • Route 53"
       - "AWS VPN"
   - name: Monitoring
+    tags: [networking, devops]
     items:
       - "Zabbix • ThousandEyes • Pingdom"
       - "Grafana • Influx • Telegraf"
@@ -66,46 +80,71 @@ experience:
         dates: "April 2022 - Present"
         bullets:
           - "Promoted to Sr. Eng. in Fall 2024"
-          - "Built and Deployed an ElastiCache Service Offering utilizing Terraform and AWS Service Catalog products on a quick timeline based upon prior design work"
-          - "Developed Lambda backed Kafka Topic on Repository events"
-          - "Mentored juniors and peers throughout my org, formally participating in the young professional development program"
-          - "Created a python based GitHub app deployed via Terraform to AWS lambda to enforce policy guardrails for enterprise GitHub environment"
-          - "Personally converted 50+ pipelines from CircleCI to Github"
-          - "Provided pipeline support for all org developers. Supported and debugged a wide range of deployments: including NPM builds, golden image creation, python packaging, along with Terraform and other IAC deployments to AWS."
-          - "Participated in Org wide Architecture Reviews as a Junior Member"
+          - text: "Built and Deployed an ElastiCache Service Offering utilizing Terraform and AWS Service Catalog products on a quick timeline based upon prior design work"
+            tags: [devops, cloud]
+          - text: "Developed Lambda backed Kafka Topic on Repository events"
+            tags: [devops, cloud]
+          - text: "Mentored juniors and peers throughout my org, formally participating in the young professional development program"
+            tags: [leadership]
+          - text: "Created a python based GitHub app deployed via Terraform to AWS lambda to enforce policy guardrails for enterprise GitHub environment"
+            tags: [devops, security]
+          - text: "Personally converted 50+ pipelines from CircleCI to Github"
+            tags: [devops]
+          - text: "Provided pipeline support for all org developers. Supported and debugged a wide range of deployments: including NPM builds, golden image creation, python packaging, along with Terraform and other IAC deployments to AWS."
+            tags: [devops]
+          - text: "Participated in Org wide Architecture Reviews as a Junior Member"
+            tags: [leadership]
   - company: Pavlov Media
     roles:
       - title: "Sr. DevOps Eng."
         dates: "Sep 2021 - April 2022"
         bullets:
-          - "Administered Arista, Fortigate, and Mikrotik based network"
-          - "Reviewed SIEM and other Security related alerts"
-          - "Updated and reviewed visio network documentation"
-          - "Assisted with Ansible automation"
+          - text: "Administered Arista, Fortigate, and Mikrotik based network"
+            tags: [networking]
+          - text: "Reviewed SIEM and other Security related alerts"
+            tags: [security]
+          - text: "Updated and reviewed visio network documentation"
+            tags: [networking]
+          - text: "Assisted with Ansible automation"
+            tags: [devops]
   - company: Wolfram Research
     roles:
       - title: "Systems Command and Network Team Manager"
         dates: "Aug 2018 – Sep 2021"
         bullets:
-          - "Managed two teams: A Support Operations Center and the Networking Team"
-          - "Lead 24/7 systems monitoring, internal/external support, and operations center"
-          - "Managed 12 direct reports split between both teams."
-          - "Primary Network Architect for 2 data centers, 2 colocations, headquarters, 9 remote offices, and cloud environments"
-          - "Architect of BGP/VXLAN based data center network using Arista routers"
-          - "Performed vulnerability assessments using Nessus"
+          - text: "Managed two teams: A Support Operations Center and the Networking Team"
+            tags: [leadership]
+          - text: "Lead 24/7 systems monitoring, internal/external support, and operations center"
+            tags: [leadership]
+          - text: "Managed 12 direct reports split between both teams."
+            tags: [leadership]
+          - text: "Primary Network Architect for 2 data centers, 2 colocations, headquarters, 9 remote offices, and cloud environments"
+            tags: [networking]
+          - text: "Architect of BGP/VXLAN based data center network using Arista routers"
+            tags: [networking]
+          - text: "Performed vulnerability assessments using Nessus"
+            tags: [security]
       - title: "Project Manager"
         dates: "February 2017 - August 2018"
         bullets:
-          - "Primary POC for enterprise clients running appliances in production"
-          - "Responsible for project management of all Global Technical Operations groups: Web Systems, Systems Administration, 24/7 Operations Center"
-          - "Leading or coordinating 20 to 35 hours of meetings per week"
-          - "Managed whole lifecycle of Wolfram Systems Command internal and external customer projects"
-          - "Administrated JIRA projects, creating and tracking feature/bug tickets"
-          - "Improved release procedure and documentation for Wolfram Enterprise Private Clouds"
+          - text: "Primary POC for enterprise clients running appliances in production"
+            tags: [product]
+          - text: "Responsible for project management of all Global Technical Operations groups: Web Systems, Systems Administration, 24/7 Operations Center"
+            tags: [product, leadership]
+          - text: "Leading or coordinating 20 to 35 hours of meetings per week"
+            tags: [product]
+          - text: "Managed whole lifecycle of Wolfram Systems Command internal and external customer projects"
+            tags: [product]
+          - text: "Administrated JIRA projects, creating and tracking feature/bug tickets"
+            tags: [product]
+          - text: "Improved release procedure and documentation for Wolfram Enterprise Private Clouds"
+            tags: [product, devops]
   - company: Parkland Community College
     roles:
       - title: "Part Time Instructor"
         dates: "Spring 2021"
         bullets:
-          - "Taught 1 semester of CSC 133 PC Hardware and OS Maintenance"
-          - "Emphasized customer first methodologies based upon my work experience"
+          - text: "Taught 1 semester of CSC 133 PC Hardware and OS Maintenance"
+            tags: [teaching]
+          - text: "Emphasized customer first methodologies based upon my work experience"
+            tags: [teaching]

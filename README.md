@@ -1,15 +1,20 @@
 # Resume
 
-One source of truth (`resume.yaml`) rendered to **Markdown**, **LaTeX**,
-**PDF** (Deedy two-column), and **Word (.docx)**.
+A complete master CV (`resume.yaml`) plus small **variant** files that pick
+which tagged elements to include. Each variant renders to **Markdown**,
+**LaTeX**, **PDF** (Deedy two-column), and **Word (.docx)**.
 
 ```
-resume.yaml              # edit this — all content lives here
+resume.yaml              # the COMPLETE CV — every job/bullet/cert/skill
+variants/
+  full.yaml              # everything (== the original resume)
+  networking.yaml        # network-focused subset + objective
+  product.yaml           # product/PM-focused subset + objective
 templates/
   resume.md.j2           # Markdown template (Jinja2)
   resume.tex.j2          # LaTeX template (Jinja2, LaTeX-safe delimiters)
 latex/
-  deedy-resume-openfont.cls   # Deedy class, system-font based
+  deedy-resume-openfont.cls   # Deedy class, bundled-font based
 build.py                 # renderer / orchestrator
 dist/                    # generated output (gitignored)
 ```
@@ -34,15 +39,16 @@ Fonts are bundled in `fonts/` and committed — no font install needed.
 ## Build
 
 ```sh
-make all      # md + tex + pdf + docx  ->  dist/
-make md       # just Markdown
-make tex      # just LaTeX source
-make pdf      # LaTeX -> PDF (xelatex, run twice for positioning)
-make docx     # styled Word document
-make clean    # wipe dist/
+make all                       # full variant -> dist/resume.{md,tex,pdf,docx}
+make all VARIANT=networking    # -> dist/MichaelPhillips_Networking.*
+make variants                  # build every variant in variants/, all formats
+make md  VARIANT=product       # one format, one variant
+make pdf VARIANT=full          # LaTeX -> PDF (xelatex, run twice)
+make clean                     # wipe dist/
 ```
 
-Outputs: `dist/resume.{md,tex,pdf,docx}`.
+`make all` with no `VARIANT` builds `full`, which is byte-identical to the
+original resume. Each variant's `output:` field sets its `dist/` basename.
 
 ## Pre-commit hook
 
@@ -55,12 +61,38 @@ Commits touching only other files skip the rebuild. Bypass with
 
 ## Editing content
 
-Edit `resume.yaml` and rebuild. Structure:
+`resume.yaml` is the **complete** CV — never trim it; add everything.
+Layout: `education`, `certifications`, `technology` → left column of the
+PDF; `experience` → right column (a company has one or more `roles`, each
+with `bullets`). Markdown and DOCX render one linear, ATS-friendly flow.
 
-- `education`, `certifications`, `technology` → **left column** of the PDF.
-- `experience` → **right column** of the PDF (a company has one or more
-  `roles`, each with `bullets`).
-- Markdown and DOCX render everything in a single linear flow (ATS-friendly).
+## Variants & tags
+
+Which elements appear in a given resume is decided by `variants/*.yaml`,
+not by editing the CV. Tagging model:
+
+- A **plain-string** bullet/item, or a group with **no `tags:`**, is
+  *core* — always included in every variant.
+- A bullet/item written as `{text: ..., tags: [...]}`, or a group with
+  `tags: [...]`, is included only when the variant selects one of those
+  tags (OR match). Empty sections disappear (no stray headers).
+- The `full` variant selects nothing special → includes everything.
+
+A variant file:
+
+```yaml
+label: Networking                       # human label
+output: MichaelPhillips_Networking      # dist/ basename (default: resume)
+objective: >                            # optional summary; renders only if set
+  Network architect ...
+tags: [networking, security, leadership]  # omit entirely to include all
+```
+
+To add a focus area: pick a tag word, tag the relevant bullets/groups in
+`resume.yaml`, add `variants/<name>.yaml`, then `make all VARIANT=<name>`.
+Validate every variant at once with `make variants`. Tag vocabulary
+currently in use: `networking, devops, cloud, leadership, product,
+teaching, security`.
 
 ## Fonts (PDF)
 

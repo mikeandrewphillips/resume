@@ -1,0 +1,14 @@
+# Network-engineering focused resume.
+label: Networking
+output: MichaelPhillips_Networking
+objective: >
+  Network architect and engineer with deep BGP/VXLAN, Arista, and MikroTik
+  experience across data centers, colocations, and cloud, seeking a senior
+  network/infrastructure role.
+
+# Core (untagged) elements are always kept. These tags pull in the
+# network-, security-, and leadership-specific material on top of that.
+tags:
+  - networking
+  - security
+  - leadership

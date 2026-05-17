@@ -4,6 +4,13 @@
 
 ---
 
+{% if r.objective %}
+## Objective
+
+{{ r.objective }}
+
+{% endif %}
+{% if r.experience %}
 ## Experience
 
 {% for company in r.experience %}
@@ -18,12 +25,16 @@
 
 {% endfor %}
 {% endfor %}
+{% endif %}
+{% if r.education %}
 ## Education
 
 {% for e in r.education %}
 **{{ e.school }}** — {{ e.detail }} *({{ e.dates }})*
 
 {% endfor %}
+{% endif %}
+{% if r.certifications %}
 ## Certifications
 
 {% for c in r.certifications %}
@@ -34,6 +45,8 @@
 {% endfor %}
 
 {% endfor %}
+{% endif %}
+{% if r.technology %}
 ## Technology
 
 {% for t in r.technology %}
@@ -44,3 +57,4 @@
 {% endfor %}
 
 {% endfor %}
+{% endif %}

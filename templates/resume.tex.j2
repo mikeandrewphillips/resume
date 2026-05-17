@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GENERATED FILE - do not edit by hand.
-% Source: resume.yaml  |  Template: templates/resume.tex.j2
+% Source: resume.yaml + variants/  |  Template: templates/resume.tex.j2
 % Regenerate with: make tex   (or make pdf)
 %
 % Deedy - One Page Two Column Resume (LaTeX)
@@ -25,6 +25,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{minipage}[t]{0.27\textwidth}
 
+\BLOCK{if r.education}
 \section{Education}
 \BLOCK{for e in r.education}
 \subsection{\VAR{e.school | tex}}
@@ -33,6 +34,8 @@
 \sectionsep
 
 \BLOCK{endfor}
+\BLOCK{endif}
+\BLOCK{if r.certifications}
 \section{Certifications}
 \BLOCK{for c in r.certifications}
 \subsection{\VAR{c.name | tex}}
@@ -42,6 +45,8 @@
 \sectionsep
 
 \BLOCK{endfor}
+\BLOCK{endif}
+\BLOCK{if r.technology}
 \section{Technology}
 \sectionsep
 \BLOCK{for t in r.technology}
@@ -52,6 +57,7 @@
 \sectionsep
 
 \BLOCK{endfor}
+\BLOCK{endif}
 \end{minipage}
 \hfill
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,6 +65,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{minipage}[t]{0.7\textwidth}
 
+\BLOCK{if r.objective}
+\section{Objective}
+\VAR{r.objective | tex}
+\sectionsep
+
+\BLOCK{endif}
+\BLOCK{if r.experience}
 \BLOCK{for company in r.experience}
 \BLOCK{set company_first = loop.first}
 \section{\VAR{company.company | tex}}
@@ -77,5 +90,6 @@
 
 \BLOCK{endfor}
 \BLOCK{endfor}
+\BLOCK{endif}
 \end{minipage}
 \end{document}

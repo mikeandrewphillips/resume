@@ -1,0 +1,5 @@
+# The complete resume - includes every element of the master CV.
+# Reproduces the original resume byte-for-byte (no tag filtering).
+label: Full CV
+output: resume
+# No `tags:` key  ->  no filtering  ->  everything from resume.yaml is kept.
