@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GENERATED FILE - do not edit by hand.
+% Source: resume.yaml  |  Template: templates/resume.tex.j2
+% Regenerate with: make tex   (or make pdf)
+%
+% Deedy - One Page Two Column Resume (LaTeX)
+% Original author: Debarghya Das (http://debarghyadas.com)
+% IMPORTANT: compile with XeLaTeX.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{deedy-resume-openfont}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\lastupdated
+
+\namesection{}{\VAR{r.name}}{\VAR{r.contact.address | tex} | \VAR{r.contact.phone | tex} | \href{mailto:\VAR{r.contact.email}}{\VAR{r.contact.email | tex}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COLUMN ONE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[t]{0.27\textwidth}
+
+\section{Education}
+\BLOCK{for e in r.education}
+\subsection{\VAR{e.school | tex}}
+\VAR{e.detail | tex} \\
+\VAR{e.dates | tex}
+\sectionsep
+
+\BLOCK{endfor}
+\section{Certifications}
+\BLOCK{for c in r.certifications}
+\subsection{\VAR{c.name | tex}}
+\BLOCK{for item in c['items']}
+\VAR{item | tex} \\
+\BLOCK{endfor}
+\sectionsep
+
+\BLOCK{endfor}
+\section{Technology}
+\sectionsep
+\BLOCK{for t in r.technology}
+\subsection{\VAR{t.name | tex}}
+\BLOCK{for item in t['items']}
+\VAR{item | tex} \\
+\BLOCK{endfor}
+\sectionsep
+
+\BLOCK{endfor}
+\end{minipage}
+\hfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COLUMN TWO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[t]{0.7\textwidth}
+
+\BLOCK{for company in r.experience}
+\BLOCK{set company_first = loop.first}
+\section{\VAR{company.company | tex}}
+\BLOCK{for role in company.roles}
+\runsubsection{}
+\location{\VAR{role.title | tex} | \VAR{role.dates | tex}}
+\BLOCK{if company_first and loop.first}
+\vspace{\topsep}
+\BLOCK{endif}
+\begin{tightemize}
+\BLOCK{for bullet in role.bullets}
+\item \VAR{bullet | tex}
+\BLOCK{endfor}
+\end{tightemize}
+\sectionsep
+
+\BLOCK{endfor}
+\BLOCK{endfor}
+\end{minipage}
+\end{document}

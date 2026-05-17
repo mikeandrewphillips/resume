@@ -1,0 +1,46 @@
+# {{ r.name }}
+
+{{ r.contact.address }} | {{ r.contact.phone }} | [{{ r.contact.email }}](mailto:{{ r.contact.email }})
+
+---
+
+## Experience
+
+{% for company in r.experience %}
+### {{ company.company }}
+
+{% for role in company.roles %}
+**{{ role.title }}** — *{{ role.dates }}*
+
+{% for bullet in role.bullets %}
+- {{ bullet }}
+{% endfor %}
+
+{% endfor %}
+{% endfor %}
+## Education
+
+{% for e in r.education %}
+**{{ e.school }}** — {{ e.detail }} *({{ e.dates }})*
+
+{% endfor %}
+## Certifications
+
+{% for c in r.certifications %}
+**{{ c.name }}**
+
+{% for item in c['items'] %}
+- {{ item }}
+{% endfor %}
+
+{% endfor %}
+## Technology
+
+{% for t in r.technology %}
+**{{ t.name }}**
+
+{% for item in t['items'] %}
+- {{ item }}
+{% endfor %}
+
+{% endfor %}

@@ -1,0 +1,111 @@
+# Single source of truth for the resume.
+# Edit this file, then run `make all` to regenerate every format.
+#
+# Layout note: `education`, `certifications`, and `technology` render in the
+# left column of the LaTeX/PDF (Deedy) layout; `experience` renders in the
+# right column. Markdown and DOCX render everything in a single linear flow.
+
+name: Michael Phillips
+
+contact:
+  address: "1701 Maynard Dr. Champaign IL 61822"
+  phone: "270.906.6380"
+  email: "mikeandrewphillips@gmail.com"
+
+education:
+  - school: Eastern Illinois
+    detail: "B.A. Interdisciplinary Studies"
+    dates: "Jan 2021 - Dec 2023"
+  - school: Auburn University
+    detail: "Focus: Physics and CS"
+    dates: "Aug 2011 - Dec 2016"
+
+certifications:
+  - name: Azure
+    items:
+      - "AZ-900"
+      - "Credential ID I231-4634"
+  - name: GitHub
+    items:
+      - "GitHub Fundamentals - Feb 2024"
+  - name: AWS
+    items:
+      - "Studying for Solutions Architect Associate"
+  - name: MikroTik
+    items:
+      - "Wireless Engineer (MTCWE)"
+      - "# 2110WE6906"
+      - "Traffic Control Engineer (MTCTE)"
+      - "# 2110TCE6901"
+      - "Routing Engineer (MTCRE)"
+      - "# 2110RE6880"
+
+technology:
+  - name: Languages
+    items:
+      - "Python • C++"
+      - "Wolfram Language • LabView"
+      - "Courses taken while at Auburn:"
+      - "Fortran • Java • R"
+  - name: AWS
+    items:
+      - "Lambda • DynamoDB"
+      - "CDK • Terraform • ElastiCache"
+      - "S3 • EC2 • Route 53"
+      - "AWS VPN"
+  - name: Monitoring
+    items:
+      - "Zabbix • ThousandEyes • Pingdom"
+      - "Grafana • Influx • Telegraf"
+      - "DataDog"
+
+experience:
+  - company: W.W. Grainger
+    roles:
+      - title: "Sr. Software Eng."
+        dates: "April 2022 - Present"
+        bullets:
+          - "Promoted to Sr. Eng. in Fall 2024"
+          - "Built and Deployed an ElastiCache Service Offering utilizing Terraform and AWS Service Catalog products on a quick timeline based upon prior design work"
+          - "Developed Lambda backed Kafka Topic on Repository events"
+          - "Mentored juniors and peers throughout my org, formally participating in the young professional development program"
+          - "Created a python based GitHub app deployed via Terraform to AWS lambda to enforce policy guardrails for enterprise GitHub environment"
+          - "Personally converted 50+ pipelines from CircleCI to Github"
+          - "Provided pipeline support for all org developers. Supported and debugged a wide range of deployments: including NPM builds, golden image creation, python packaging, along with Terraform and other IAC deployments to AWS."
+          - "Participated in Org wide Architecture Reviews as a Junior Member"
+  - company: Pavlov Media
+    roles:
+      - title: "Sr. DevOps Eng."
+        dates: "Sep 2021 - April 2022"
+        bullets:
+          - "Administered Arista, Fortigate, and Mikrotik based network"
+          - "Reviewed SIEM and other Security related alerts"
+          - "Updated and reviewed visio network documentation"
+          - "Assisted with Ansible automation"
+  - company: Wolfram Research
+    roles:
+      - title: "Systems Command and Network Team Manager"
+        dates: "Aug 2018 – Sep 2021"
+        bullets:
+          - "Managed two teams: A Support Operations Center and the Networking Team"
+          - "Lead 24/7 systems monitoring, internal/external support, and operations center"
+          - "Managed 12 direct reports split between both teams."
+          - "Primary Network Architect for 2 data centers, 2 colocations, headquarters, 9 remote offices, and cloud environments"
+          - "Architect of BGP/VXLAN based data center network using Arista routers"
+          - "Performed vulnerability assessments using Nessus"
+      - title: "Project Manager"
+        dates: "February 2017 - August 2018"
+        bullets:
+          - "Primary POC for enterprise clients running appliances in production"
+          - "Responsible for project management of all Global Technical Operations groups: Web Systems, Systems Administration, 24/7 Operations Center"
+          - "Leading or coordinating 20 to 35 hours of meetings per week"
+          - "Managed whole lifecycle of Wolfram Systems Command internal and external customer projects"
+          - "Administrated JIRA projects, creating and tracking feature/bug tickets"
+          - "Improved release procedure and documentation for Wolfram Enterprise Private Clouds"
+  - company: Parkland Community College
+    roles:
+      - title: "Part Time Instructor"
+        dates: "Spring 2021"
+        bullets:
+          - "Taught 1 semester of CSC 133 PC Hardware and OS Maintenance"
+          - "Emphasized customer first methodologies based upon my work experience"
