@@ -22,24 +22,24 @@
 name: Michael Phillips
 
 contact:
-  address: "1701 Maynard Dr. Champaign IL 61822"
+  address: "Champaign, IL"
   phone: "270.906.6380"
   email: "mikeandrewphillips@gmail.com"
 
 education:
   - school: Eastern Illinois University
     detail: "B.A. Interdisciplinary Studies"
-    dates: "Jan 2021 - Dec 2023"
+    dates: "Jan 2021 – Dec 2023"
   - school: Auburn University
     detail: "Physics & Computer Science"
-    dates: "Aug 2011 - Dec 2016"
+    dates: "Aug 2011 – Dec 2016"
   - school: Western Kentucky University
     detail: "Dual enrollment via the Gatton Academy"
-    dates: "2009 - 2011"
+    dates: "2009 – 2011"
     tags: [academic]
   - school: The Gatton Academy
     detail: "High School Diploma with Honors (Math & Science)"
-    dates: "2009 - 2011"
+    dates: "2009 – 2011"
     tags: [academic]
 
 certifications:
@@ -51,9 +51,9 @@ certifications:
   - name: GitHub
     items:
       - "GitHub Fundamentals — 2024"
-  - name: MikroTik
+  - name: MikroTik (lapsed)
     items:
-      - "MTCNA · MTCRE · MTCTE · MTCWE — 2021 (expired 2024)"
+      - "MTCNA · MTCRE · MTCTE · MTCWE — 2021"
       - text: "Wireless Engineer (MTCWE) # 2110WE6906"
         tags: [detail]
       - text: "Traffic Control Engineer (MTCTE) # 2110TCE6901"
@@ -68,7 +68,9 @@ technology:
     items:
       - "Python • C++"
       - "Wolfram Language • LabView"
-      - "Courses taken while at Auburn:"
+  - name: Coursework (Auburn)
+    tags: [extended, academic]
+    items:
       - "Fortran • Java • R"
   - name: Platform & CI/CD
     items:
@@ -92,32 +94,32 @@ experience:
   - company: W.W. Grainger
     roles:
       - title: "Engineering Manager"
-        dates: "May 2025 - Present"
+        dates: "May 2025 – Present"
         bullets:
           - text: "Lead the Pipeline team within Platform Engineering, optimizing CI/CD pipelines, GitHub Actions/Workflows, and SonarQube to deliver reliable, high-impact developer tooling"
             tags: [overview, networking, product]
           - text: "Drive innovation, reliability, and cross-team collaboration across developer-platform initiatives"
             tags: [overview, product]
       - title: "Senior Software Engineer"
-        dates: "Sep 2024 - May 2025"
+        dates: "Sep 2024 – May 2025"
         bullets:
           - text: "Promoted to Senior Software Engineer, expanding ownership of the enterprise VCS platform and developer tooling"
             tags: [overview]
-          - text: "Mentored juniors and peers across the org; formally participated in the young professional development program"
+          - text: "Mentored junior and peer engineers across the org through the company's young-professional development program"
             tags: [overview, product]
           - text: "Participated in org-wide Architecture Reviews"
             tags: [overview, extended]
       - title: "Software Engineer II"
-        dates: "May 2022 - Sep 2024"
+        dates: "May 2022 – Sep 2024"
         bullets:
           - text: "Migrated 100s of repositories and pipelines from Bitbucket, CircleCI, and Bamboo to GitHub and GitHub Actions"
-            tags: [overview]
+            tags: [overview, product]
           - text: "Designed and deployed a serverless Python GitHub App (Terraform + AWS Lambda) to establish and enforce enterprise VCS policy guardrails"
-            tags: [overview]
+            tags: [overview, product]
           - text: "Designed and deployed Kafka consumers/producers to automate GitHub tasks and publish VCS metadata"
             tags: [extended]
           - text: "Built and deployed an ElastiCache service offering using Terraform and AWS Service Catalog on a tight timeline from prior design work"
-            tags: [extended]
+            tags: [product, extended]
           - text: "Regularly supported and enabled developers to maintain and modernize CI/CD pipelines"
             tags: [overview]
           - text: "Developed multiple internal reporting tools on VCS metrics"
@@ -125,20 +127,20 @@ experience:
   - company: Pavlov Media
     roles:
       - title: "Senior DevOps Engineer"
-        dates: "Sep 2021 - May 2022"
+        dates: "Sep 2021 – May 2022"
         bullets:
           - text: "Designed and implemented networks using MLAG, VPN, and VRR; administered Arista, FortiGate, and MikroTik"
             tags: [overview, networking]
           - text: "Managed and troubleshot Layer 7 firewalls; reviewed SIEM and other security alerts"
             tags: [networking]
           - text: "Authored and maintained network architecture documentation"
-            tags: [extended]
+            tags: [networking, extended]
           - text: "Assisted with Ansible automation"
             tags: [extended]
   - company: Wolfram Research
     roles:
       - title: "Systems Command and Network Manager"
-        dates: "May 2019 - Sep 2021"
+        dates: "May 2019 – Sep 2021"
         bullets:
           - text: "Led 24/7 systems monitoring, internal/external support, and the operations center"
             tags: [overview, networking]
@@ -149,31 +151,31 @@ experience:
           - text: "Architected a BGP/VXLAN data-center network on Arista routers"
             tags: [networking]
           - text: "Performed vulnerability assessments using Nessus"
-            tags: [extended]
+            tags: [networking, extended]
           - text: "Oversaw implementation of monitoring and reporting tools"
             tags: [extended]
       - title: "Network Systems Administrator"
-        dates: "Aug 2018 - May 2019"
+        dates: "Aug 2018 – May 2019"
         bullets:
           - text: "Sole network admin for all company offices, data centers, colocations, and cloud environments"
             tags: [networking, early]
           - text: "Migrated flat networks to a three-tier hierarchical OSPF design"
             tags: [networking, early]
           - text: "Completed a new Wi-Fi rollout; deployed SonicWalls and moved tunnels to routed L3 links with active VPN failover"
-            tags: [early]
+            tags: [networking, early]
           - text: "Managed Cisco, Extreme, MikroTik, and Ubiquiti equipment; iptables/DHCP/DNS/routing on CentOS"
-            tags: [early]
+            tags: [networking, early]
       - title: "Project Manager"
-        dates: "Oct 2017 - Aug 2018"
+        dates: "Oct 2017 – Aug 2018"
         bullets:
           - text: "Primary POC for enterprise clients running appliances in production"
             tags: [product]
           - text: "Owned project management for all Global Technical Operations groups: Web Systems, Systems Administration, 24/7 Operations Center"
             tags: [product, overview]
-          - text: "Led or coordinated 20-35 hours of meetings weekly with frequent C-level interaction"
+          - text: "Ran the weekly operational cadence, including standing C-level program reviews"
             tags: [product]
       - title: "Project Coordinator"
-        dates: "Feb 2017 - Oct 2017"
+        dates: "Feb 2017 – Oct 2017"
         bullets:
           - text: "Managed the full lifecycle of Wolfram Systems Command internal and external projects"
             tags: [product]
@@ -184,7 +186,7 @@ experience:
   - company: Parkland College
     roles:
       - title: "Part-Time Faculty"
-        dates: "Jan 2021 - May 2021"
+        dates: "Jan 2021 – May 2021"
         bullets:
           - text: "Taught CSC-133: PC Hardware and OS Maintenance (Spring 2021), preparing students for the A+ certification"
             tags: [overview, teaching]
@@ -193,7 +195,7 @@ experience:
   - company: Auburn University Small Satellite Program
     roles:
       - title: "Project Manager - TRYAD CubeSats"
-        dates: "Aug 2015 - Dec 2015"
+        dates: "Aug 2015 – Dec 2015"
         bullets:
           - text: "Engineering management for 2 NSF-funded TRYAD CubeSats ($893,873 budget)"
             tags: [early, product]
@@ -202,14 +204,14 @@ experience:
           - text: "Presented the program overview at the 2015 SESAPS meeting (Mobile, AL)"
             tags: [early]
       - title: "Project Manager - AubieSat-2"
-        dates: "Jan 2015 - May 2015"
+        dates: "Jan 2015 – May 2015"
         bullets:
           - text: "Project manager and system architect for the AubieSat-2 project (AUSSP)"
             tags: [early]
   - company: Auburn University
     roles:
       - title: "Research Assistant - Computational Physics"
-        dates: "Sep 2011 - May 2013"
+        dates: "Sep 2011 – May 2013"
         bullets:
           - text: "Simulated n-body systems and numerically solved differential equations in C++"
             tags: [early, research]
@@ -218,7 +220,7 @@ experience:
   - company: Western Kentucky University
     roles:
       - title: "Research & Teaching Assistant"
-        dates: "2010 - 2011"
+        dates: "2010 – 2011"
         bullets:
           - text: "Mathematics RA: analyzed Krapivsky-Redner model graphs (Dr. Bela Csaba)"
             tags: [early, research]

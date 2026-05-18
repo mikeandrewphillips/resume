@@ -224,7 +224,10 @@ def build_pdf(resume: dict, base: str) -> Path:
         tail = log.read_text(errors="replace").splitlines()[-25:] if log.exists() else []
         raise ToolchainError("xelatex failed:\n" + "\n".join(tail))
     for ext in (".aux", ".log", ".out"):
-        (DIST / f"{base}{ext}").unlink(missing_ok=True)
+        try:
+            (DIST / f"{base}{ext}").unlink(missing_ok=True)
+        except PermissionError:
+            pass  # non-fatal: some mounts (e.g. macOS bind-mounts) block unlink
     out = DIST / f"{base}.pdf"
     print(f"  wrote {out.relative_to(ROOT)}")
     return out
