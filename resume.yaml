@@ -96,9 +96,11 @@ experience:
       - title: "Engineering Manager"
         dates: "May 2025 – Present"
         bullets:
-          - text: "Lead the Pipeline team within Platform Engineering, optimizing CI/CD pipelines, GitHub Actions/Workflows, and SonarQube to deliver reliable, high-impact developer tooling"
+          - text: "Lead the Pipeline team (3 FTEs + 4 contractors) within Platform Engineering, owning the internal VCS, CI/CD, and Code Quality product offering — 300+ team-owned repos and 5,000+ enterprise repos under management"
             tags: [overview, networking, product]
-          - text: "Drive innovation, reliability, and cross-team collaboration across developer-platform initiatives"
+          - text: "Drove migration of self-hosted EKS CI/CD runners to a firewalled network environment, partnering with Corporate Security on 100+ outbound firewall rules to harden enterprise pipelines"
+            tags: [networking, product]
+          - text: "Optimize GitHub Actions/Workflows and SonarQube tooling; partner with Security, Developer Portal, and Golden Pipelines on enterprise developer experience"
             tags: [overview, product]
       - title: "Senior Software Engineer"
         dates: "Sep 2024 – May 2025"
@@ -142,7 +144,7 @@ experience:
       - title: "Systems Command and Network Manager"
         dates: "May 2019 – Sep 2021"
         bullets:
-          - text: "Led 24/7 systems monitoring, internal/external support, and the operations center"
+          - text: "Led 24/7 monitoring, internal/external support, and the operations center across thousands of servers, network devices, and customer-facing websites"
             tags: [overview, networking]
           - text: "Managed ten direct reports across three shifts"
             tags: [overview, product]
