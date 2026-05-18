@@ -1,5 +1,6 @@
-# The complete resume - includes every element of the master CV.
-# Reproduces the original resume byte-for-byte (no tag filtering).
+# The COMPLETE CV - every role, bullet, all history and publications.
+# Rendered with the classic multi-page LaTeX CV (not the one-page Deedy).
+# No `tags:` key  ->  no filtering  ->  everything in resume.yaml.
 label: Full CV
-output: resume
-# No `tags:` key  ->  no filtering  ->  everything from resume.yaml is kept.
+output: MichaelPhillips_FullCV
+layout: classic

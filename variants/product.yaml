@@ -1,11 +1,8 @@
-# Product / project-management focused resume.
+# One-page product / project-management focused resume.
 label: Product Management
 output: MichaelPhillips_Product
 objective: >
-  Technical project/product manager experienced in owning the full lifecycle
-  of enterprise software and operations programs, coordinating cross-team
-  delivery and stakeholder communication.
-
-tags:
-  - product
-  - leadership
+  Technical project/product manager and engineering leader experienced in
+  owning the full lifecycle of enterprise software and operations programs,
+  coordinating cross-team delivery and stakeholder communication.
+tags: [product]

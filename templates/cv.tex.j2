@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GENERATED FILE - do not edit by hand.
+% Source: resume.yaml + variants/  |  Template: templates/cv.tex.j2
+% Classic multi-page LaTeX CV (the COMPLETE record). Compile with XeLaTeX.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+
+\usepackage[hmargin=1in, vmargin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+\titleformat{\section}{\large\scshape\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{14pt}{6pt}
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+% Tighter itemize without enumitem (kept minimal for BasicTeX).
+\newenvironment{tight}{%
+  \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}%
+  \setlength{\topsep}{2pt}}{\end{itemize}}
+
+\newcommand{\entry}[2]{\textbf{#1}\hfill{\itshape #2}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\scshape \VAR{r.name}}\\[4pt]
+\VAR{r.contact.address | tex} $\;|\;$ \VAR{r.contact.phone | tex} $\;|\;$
+\href{mailto:\VAR{r.contact.email}}{\VAR{r.contact.email | tex}}
+\end{center}
+
+\BLOCK{if r.objective}
+\section*{Summary}
+\VAR{r.objective | tex}
+\BLOCK{endif}
+\BLOCK{if r.experience}
+\section*{Experience}
+\BLOCK{for company in r.experience}
+{\large\bfseries \VAR{company.company | tex}}\par
+\BLOCK{for role in company.roles}
+\entry{\VAR{role.title | tex}}{\VAR{role.dates | tex}}
+\begin{tight}
+\BLOCK{for bullet in role.bullets}
+\item \VAR{bullet | tex}
+\BLOCK{endfor}
+\end{tight}
+\BLOCK{endfor}
+\vspace{6pt}
+
+\BLOCK{endfor}
+\BLOCK{endif}
+\BLOCK{if r.education}
+\section*{Education}
+\BLOCK{for e in r.education}
+\entry{\VAR{e.school | tex}}{\VAR{e.dates | tex}}
+\VAR{e.detail | tex}\par\vspace{4pt}
+\BLOCK{endfor}
+\BLOCK{endif}
+\BLOCK{if r.certifications}
+\section*{Certifications}
+\BLOCK{for c in r.certifications}
+\textbf{\VAR{c.name | tex}:} \VAR{c['items'] | join(' · ') | tex}\par
+\BLOCK{endfor}
+\BLOCK{endif}
+\BLOCK{if r.technology}
+\section*{Technology}
+\BLOCK{for t in r.technology}
+\textbf{\VAR{t.name | tex}:} \VAR{t['items'] | join(' · ') | tex}\par
+\BLOCK{endfor}
+\BLOCK{endif}
+\BLOCK{if r.publications}
+\section*{Publications}
+\begin{enumerate}
+\BLOCK{for pub in r.publications}
+\item \VAR{pub | tex}
+\BLOCK{endfor}
+\end{enumerate}
+\BLOCK{endif}
+\end{document}

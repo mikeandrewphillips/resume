@@ -58,3 +58,10 @@
 
 {% endfor %}
 {% endif %}
+{% if r.publications %}
+## Publications
+
+{% for pub in r.publications %}
+- {{ pub }}
+{% endfor %}
+{% endif %}

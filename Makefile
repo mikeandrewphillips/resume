@@ -1,7 +1,7 @@
 VENV    := .venv
 PY      := $(VENV)/bin/python
 PIP     := $(VENV)/bin/pip
-VARIANT ?= full
+VARIANT ?= standard
 
 .DEFAULT_GOAL := help
 
@@ -14,9 +14,10 @@ help: ## Show this help
 	  | awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
 	@echo
 	@echo "Variants live in variants/. Build one with VARIANT=<name>:"
+	@echo "  make all                         # default VARIANT=standard -> dist/resume.* (lean)"
+	@echo "  make all VARIANT=full            # complete CV -> dist/MichaelPhillips_FullCV.*"
 	@echo "  make all VARIANT=networking      # -> dist/MichaelPhillips_Networking.*"
 	@echo "  make variants                    # build every variant, all formats"
-	@echo "  make all                         # default VARIANT=full -> dist/resume.*"
 	@echo
 	@echo "First-time setup:"
 	@echo "  make setup                              # python venv + deps"

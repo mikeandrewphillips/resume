@@ -1,0 +1,9 @@
+# Default resume: a one-page career overview, weighted toward the current
+# management track (Engineering Manager -> Senior Manager).
+label: Standard
+output: resume
+objective: >
+  Engineering leader who grew from software engineer to manager of a
+  developer-platform team, with a track record across CI/CD, systems, and
+  network leadership - targeting a senior engineering management role.
+tags: [overview]

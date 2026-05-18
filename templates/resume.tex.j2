@@ -91,5 +91,15 @@
 \BLOCK{endfor}
 \BLOCK{endfor}
 \BLOCK{endif}
+\BLOCK{if r.publications}
+\section{Publications}
+\begin{tightemize}
+\BLOCK{for pub in r.publications}
+\item \VAR{pub | tex}
+\BLOCK{endfor}
+\end{tightemize}
+\sectionsep
+
+\BLOCK{endif}
 \end{minipage}
 \end{document}

@@ -1,17 +1,23 @@
 # Master CV - the COMPLETE record. Never trim this file.
+# Reconciled from LinkedIn (2026-05).
 #
-# Which elements appear in a given resume is decided by the variant files in
-# variants/ (e.g. variants/networking.yaml). Tagging model:
+# Tagging model
+# -------------
+# Every resume builds from this one file; variants/*.yaml pick what shows.
 #
-#   * A plain-string bullet/item, or a group with no `tags:`, is CORE and
-#     always included in every variant.
-#   * A bullet/item written as {text, tags:[...]} or a group with `tags:[...]`
-#     is included only when the variant selects one of those tags.
-#   * The `full` variant selects nothing special and therefore includes
-#     everything -> byte-identical to the original resume.
+#   * Untagged string / group with no `tags:`  -> CORE: on every resume
+#     (contact, education EI+Auburn, compact certs, core tech).
+#   * Experience bullets are tagged for the ONE-PAGER audience(s) they
+#     belong to: `overview` (the standard, management-forward career
+#     resume), `networking`, `product`. The current Grainger EM lead
+#     bullet carries all three so every one-pager leads with the job.
+#   * Bullets meant only for the complete CV carry lifecycle tags
+#     (`extended` present-day depth, `early`, `research`, `teaching`,
+#     `academic`, `detail`) and NO one-pager tag, so the one-pagers skip
+#     them while `full` (no tag filter) keeps everything.
 #
-# Tag vocabulary in use: networking, devops, cloud, leadership, product,
-# teaching, security.
+# Variants: standard=[overview] product=[product] networking=[networking]
+#           full=everything, rendered with the classic multi-page CV.
 
 name: Michael Phillips
 
@@ -21,36 +27,44 @@ contact:
   email: "mikeandrewphillips@gmail.com"
 
 education:
-  - school: Eastern Illinois
+  - school: Eastern Illinois University
     detail: "B.A. Interdisciplinary Studies"
     dates: "Jan 2021 - Dec 2023"
   - school: Auburn University
-    detail: "Focus: Physics and CS"
+    detail: "Physics & Computer Science"
     dates: "Aug 2011 - Dec 2016"
+  - school: Western Kentucky University
+    detail: "Dual enrollment via the Gatton Academy"
+    dates: "2009 - 2011"
+    tags: [academic]
+  - school: The Gatton Academy
+    detail: "High School Diploma with Honors (Math & Science)"
+    dates: "2009 - 2011"
+    tags: [academic]
 
 certifications:
   - name: Azure
-    tags: [cloud, devops]
     items:
-      - "AZ-900"
-      - "Credential ID I231-4634"
+      - "Azure Fundamentals (AZ-900) — 2022"
+      - text: "Credential ID I231-4634"
+        tags: [detail]
   - name: GitHub
-    tags: [devops]
     items:
-      - "GitHub Fundamentals - Feb 2024"
+      - "GitHub Fundamentals — 2024"
   - name: AWS
-    tags: [cloud, devops]
     items:
-      - "Studying for Solutions Architect Associate"
+      - "AWS Solutions Architect Associate (in progress)"
   - name: MikroTik
-    tags: [networking]
     items:
-      - "Wireless Engineer (MTCWE)"
-      - "# 2110WE6906"
-      - "Traffic Control Engineer (MTCTE)"
-      - "# 2110TCE6901"
-      - "Routing Engineer (MTCRE)"
-      - "# 2110RE6880"
+      - "MTCNA · MTCRE · MTCTE · MTCWE — 2021 (expired 2024)"
+      - text: "Wireless Engineer (MTCWE) # 2110WE6906"
+        tags: [detail]
+      - text: "Traffic Control Engineer (MTCTE) # 2110TCE6901"
+        tags: [detail]
+      - text: "Routing Engineer (MTCRE) # 2110RE6880"
+        tags: [detail]
+      - text: "Network Associate (MTCNA) # 2110NA6847"
+        tags: [detail]
 
 technology:
   - name: Languages
@@ -59,15 +73,19 @@ technology:
       - "Wolfram Language • LabView"
       - "Courses taken while at Auburn:"
       - "Fortran • Java • R"
+  - name: Platform & CI/CD
+    items:
+      - "GitHub Actions • CircleCI"
+      - "SonarQube • Terraform"
+      - "Apache Kafka • Docker"
   - name: AWS
-    tags: [cloud, devops]
     items:
       - "Lambda • DynamoDB"
       - "CDK • Terraform • ElastiCache"
       - "S3 • EC2 • Route 53"
       - "AWS VPN"
   - name: Monitoring
-    tags: [networking, devops]
+    tags: [extended]
     items:
       - "Zabbix • ThousandEyes • Pingdom"
       - "Grafana • Influx • Telegraf"
@@ -76,75 +94,146 @@ technology:
 experience:
   - company: W.W. Grainger
     roles:
-      - title: "Sr. Software Eng."
-        dates: "April 2022 - Present"
+      - title: "Engineering Manager"
+        dates: "May 2025 - Present"
         bullets:
-          - "Promoted to Sr. Eng. in Fall 2024"
-          - text: "Built and Deployed an ElastiCache Service Offering utilizing Terraform and AWS Service Catalog products on a quick timeline based upon prior design work"
-            tags: [devops, cloud]
-          - text: "Developed Lambda backed Kafka Topic on Repository events"
-            tags: [devops, cloud]
-          - text: "Mentored juniors and peers throughout my org, formally participating in the young professional development program"
-            tags: [leadership]
-          - text: "Created a python based GitHub app deployed via Terraform to AWS lambda to enforce policy guardrails for enterprise GitHub environment"
-            tags: [devops, security]
-          - text: "Personally converted 50+ pipelines from CircleCI to Github"
-            tags: [devops]
-          - text: "Provided pipeline support for all org developers. Supported and debugged a wide range of deployments: including NPM builds, golden image creation, python packaging, along with Terraform and other IAC deployments to AWS."
-            tags: [devops]
-          - text: "Participated in Org wide Architecture Reviews as a Junior Member"
-            tags: [leadership]
+          - text: "Lead the Pipeline team within Platform Engineering, optimizing CI/CD pipelines, GitHub Actions/Workflows, and SonarQube to deliver reliable, high-impact developer tooling"
+            tags: [overview, networking, product]
+          - text: "Drive innovation, reliability, and cross-team collaboration across developer-platform initiatives"
+            tags: [overview, product]
+      - title: "Senior Software Engineer"
+        dates: "Sep 2024 - May 2025"
+        bullets:
+          - text: "Promoted to Senior Software Engineer, expanding ownership of the enterprise VCS platform and developer tooling"
+            tags: [overview]
+          - text: "Mentored juniors and peers across the org; formally participated in the young professional development program"
+            tags: [overview, product]
+          - text: "Participated in org-wide Architecture Reviews"
+            tags: [overview, extended]
+      - title: "Software Engineer II"
+        dates: "May 2022 - Sep 2024"
+        bullets:
+          - text: "Migrated 100s of repositories and pipelines from Bitbucket, CircleCI, and Bamboo to GitHub and GitHub Actions"
+            tags: [overview]
+          - text: "Designed and deployed a serverless Python GitHub App (Terraform + AWS Lambda) to establish and enforce enterprise VCS policy guardrails"
+            tags: [overview]
+          - text: "Designed and deployed Kafka consumers/producers to automate GitHub tasks and publish VCS metadata"
+            tags: [extended]
+          - text: "Built and deployed an ElastiCache service offering using Terraform and AWS Service Catalog on a tight timeline from prior design work"
+            tags: [extended]
+          - text: "Regularly supported and enabled developers to maintain and modernize CI/CD pipelines"
+            tags: [overview]
+          - text: "Developed multiple internal reporting tools on VCS metrics"
+            tags: [extended]
   - company: Pavlov Media
     roles:
-      - title: "Sr. DevOps Eng."
-        dates: "Sep 2021 - April 2022"
+      - title: "Senior DevOps Engineer"
+        dates: "Sep 2021 - May 2022"
         bullets:
-          - text: "Administered Arista, Fortigate, and Mikrotik based network"
+          - text: "Designed and implemented networks using MLAG, VPN, and VRR; administered Arista, FortiGate, and MikroTik"
+            tags: [overview, networking]
+          - text: "Managed and troubleshot Layer 7 firewalls; reviewed SIEM and other security alerts"
             tags: [networking]
-          - text: "Reviewed SIEM and other Security related alerts"
-            tags: [security]
-          - text: "Updated and reviewed visio network documentation"
-            tags: [networking]
+          - text: "Authored and maintained network architecture documentation"
+            tags: [extended]
           - text: "Assisted with Ansible automation"
-            tags: [devops]
+            tags: [extended]
   - company: Wolfram Research
     roles:
-      - title: "Systems Command and Network Team Manager"
-        dates: "Aug 2018 – Sep 2021"
+      - title: "Systems Command and Network Manager"
+        dates: "May 2019 - Sep 2021"
         bullets:
-          - text: "Managed two teams: A Support Operations Center and the Networking Team"
-            tags: [leadership]
-          - text: "Lead 24/7 systems monitoring, internal/external support, and operations center"
-            tags: [leadership]
-          - text: "Managed 12 direct reports split between both teams."
-            tags: [leadership]
-          - text: "Primary Network Architect for 2 data centers, 2 colocations, headquarters, 9 remote offices, and cloud environments"
-            tags: [networking]
-          - text: "Architect of BGP/VXLAN based data center network using Arista routers"
+          - text: "Led 24/7 systems monitoring, internal/external support, and the operations center"
+            tags: [overview, networking]
+          - text: "Managed ten direct reports across three shifts"
+            tags: [overview, product]
+          - text: "Network architect for 2 data centers, 2 colocations, HQ, 9 remote offices, and cloud environments"
+            tags: [overview, networking]
+          - text: "Architected a BGP/VXLAN data-center network on Arista routers"
             tags: [networking]
           - text: "Performed vulnerability assessments using Nessus"
-            tags: [security]
+            tags: [extended]
+          - text: "Oversaw implementation of monitoring and reporting tools"
+            tags: [extended]
+      - title: "Network Systems Administrator"
+        dates: "Aug 2018 - May 2019"
+        bullets:
+          - text: "Sole network admin for all company offices, data centers, colocations, and cloud environments"
+            tags: [networking, early]
+          - text: "Migrated flat networks to a three-tier hierarchical OSPF design"
+            tags: [networking, early]
+          - text: "Completed a new Wi-Fi rollout; deployed SonicWalls and moved tunnels to routed L3 links with active VPN failover"
+            tags: [early]
+          - text: "Managed Cisco, Extreme, MikroTik, and Ubiquiti equipment; iptables/DHCP/DNS/routing on CentOS"
+            tags: [early]
       - title: "Project Manager"
-        dates: "February 2017 - August 2018"
+        dates: "Oct 2017 - Aug 2018"
         bullets:
           - text: "Primary POC for enterprise clients running appliances in production"
             tags: [product]
-          - text: "Responsible for project management of all Global Technical Operations groups: Web Systems, Systems Administration, 24/7 Operations Center"
-            tags: [product, leadership]
-          - text: "Leading or coordinating 20 to 35 hours of meetings per week"
+          - text: "Owned project management for all Global Technical Operations groups: Web Systems, Systems Administration, 24/7 Operations Center"
+            tags: [product, overview]
+          - text: "Led or coordinated 20-35 hours of meetings weekly with frequent C-level interaction"
             tags: [product]
-          - text: "Managed whole lifecycle of Wolfram Systems Command internal and external customer projects"
+      - title: "Project Coordinator"
+        dates: "Feb 2017 - Oct 2017"
+        bullets:
+          - text: "Managed the full lifecycle of Wolfram Systems Command internal and external projects"
             tags: [product]
-          - text: "Administrated JIRA projects, creating and tracking feature/bug tickets"
+          - text: "Administered JIRA projects; ran daily standups/Scrum; presented weekly to 40+ stakeholders"
             tags: [product]
           - text: "Improved release procedure and documentation for Wolfram Enterprise Private Clouds"
-            tags: [product, devops]
-  - company: Parkland Community College
+            tags: [product, extended]
+  - company: Parkland College
     roles:
-      - title: "Part Time Instructor"
-        dates: "Spring 2021"
+      - title: "Part-Time Faculty"
+        dates: "Jan 2021 - May 2021"
         bullets:
-          - text: "Taught 1 semester of CSC 133 PC Hardware and OS Maintenance"
+          - text: "Taught CSC-133: PC Hardware and OS Maintenance (Spring 2021), preparing students for the A+ certification"
+            tags: [overview, teaching]
+          - text: "Brought industry experience and mentoring into the classroom"
             tags: [teaching]
-          - text: "Emphasized customer first methodologies based upon my work experience"
-            tags: [teaching]
+  - company: Auburn University Small Satellite Program
+    roles:
+      - title: "Project Manager - TRYAD CubeSats"
+        dates: "Aug 2015 - Dec 2015"
+        bullets:
+          - text: "Engineering management for 2 NSF-funded TRYAD CubeSats ($893,873 budget)"
+            tags: [early, product]
+          - text: "Led 4 design reviews; maintained ITAR compliance; followed NASA Systems Engineering Handbook procedures"
+            tags: [early]
+          - text: "Presented the program overview at the 2015 SESAPS meeting (Mobile, AL)"
+            tags: [early]
+      - title: "Project Manager - AubieSat-2"
+        dates: "Jan 2015 - May 2015"
+        bullets:
+          - text: "Project manager and system architect for the AubieSat-2 project (AUSSP)"
+            tags: [early]
+  - company: Auburn University
+    roles:
+      - title: "Research Assistant - Computational Physics"
+        dates: "Sep 2011 - May 2013"
+        bullets:
+          - text: "Simulated n-body systems and numerically solved differential equations in C++"
+            tags: [early, research]
+          - text: "Co-author on two peer-reviewed physics publications (see Publications)"
+            tags: [early, research]
+  - company: Western Kentucky University
+    roles:
+      - title: "Research & Teaching Assistant"
+        dates: "2010 - 2011"
+        bullets:
+          - text: "Mathematics RA: analyzed Krapivsky-Redner model graphs (Dr. Bela Csaba)"
+            tags: [early, research]
+          - text: "Chemistry RA: numerically solved nitrate-snow-photolysis kinetics (Dr. Matthew Nee; Gatton research grant)"
+            tags: [early, research]
+          - text: "NOVA Center RA: maintained a large-chamber scanning electron microscope (Dr. Ed Kintzel)"
+            tags: [early, research]
+          - text: "Teaching Assistant, VAMPY 'Forensics Investigations in Material Science' summer program"
+            tags: [early, teaching]
+
+publications:
+  - text: 'F. Robicheaux, M.M. Goforth, and M.A. Phillips, "Simulation of prompt many-body ionization in a frozen Rydberg gas," Phys. Rev. A 90, 022712 (2014)'
+    tags: [research]
+  - text: 'F. Robicheaux, B.J. Bender, and M.A. Phillips, "Simulations of an ultracold, neutral plasma with equal mass for every charge," J. Phys. B 47, 245701 (2014)'
+    tags: [research]

@@ -139,11 +139,13 @@ def filter_cv(cv: dict, variant: dict) -> dict:
     return {
         "name": cv["name"],
         "contact": cv["contact"],
+        "layout": variant.get("layout", "deedy"),
         "objective": objective,
         "education": education,
         "certifications": _filter_groups(cv.get("certifications"), selected),
         "technology": _filter_groups(cv.get("technology"), selected),
         "experience": experience,
+        "publications": _filter_entries(cv.get("publications"), selected),
     }
 
 
@@ -189,11 +191,14 @@ def build_markdown(resume: dict, base: str) -> Path:
 
 def build_latex(resume: dict, base: str) -> Path:
     out = DIST / f"{base}.tex"
-    rendered = _latex_env().get_template("resume.tex.j2").render(r=resume)
+    classic = resume.get("layout") == "classic"
+    template = "cv.tex.j2" if classic else "resume.tex.j2"
+    rendered = _latex_env().get_template(template).render(r=resume)
     out.write_text(rendered, encoding="utf-8")
-    shutil.copyfile(CLS, DIST / CLS.name)
-    if FONTS.is_dir():
-        shutil.copytree(FONTS, DIST / "fonts", dirs_exist_ok=True)
+    if not classic:  # Deedy needs its class file + bundled fonts staged
+        shutil.copyfile(CLS, DIST / CLS.name)
+        if FONTS.is_dir():
+            shutil.copytree(FONTS, DIST / "fonts", dirs_exist_ok=True)
     print(f"  wrote {out.relative_to(ROOT)}")
     return out
 
@@ -332,6 +337,13 @@ def build_docx(resume: dict, base: str) -> Path:
                 bp.paragraph_format.space_after = Pt(1)
                 bp.add_run(item)
 
+    if resume["publications"]:
+        section_heading("Publications")
+        for pub in resume["publications"]:
+            pp = doc.add_paragraph(style="List Bullet")
+            pp.paragraph_format.space_after = Pt(2)
+            pp.add_run(pub)
+
     out = DIST / f"{base}.docx"
     doc.save(str(out))
     print(f"  wrote {out.relative_to(ROOT)}")
@@ -348,7 +360,7 @@ BUILDERS = {
 
 def main(argv: list[str]) -> None:
     target = argv[0] if argv else "all"
-    variant_name = argv[1] if len(argv) > 1 else "full"
+    variant_name = argv[1] if len(argv) > 1 else "standard"
     if target not in {*BUILDERS, "all"}:
         sys.exit(f"error: unknown target {target!r}; choose md|tex|pdf|docx|all")
 
