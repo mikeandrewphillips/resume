@@ -85,8 +85,11 @@ Last Updated on \today
 \scshape\fontspec{Lato-Light.ttf}[Path=\LatoPath]\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
 
 % Subheadings command
+% \raggedright + no hyphenation so long names (e.g. "EASTERN ILLINOIS
+% UNIVERSITY") wrap at spaces in the narrow column instead of breaking
+% mid-word ("UNI-VERSITY").
 \titleformat{\subsection}{
-\color{subheadings}\fontspec{Lato-Bold.ttf}[Path=\LatoPath]\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
+\color{subheadings}\fontspec{Lato-Bold.ttf}[Path=\LatoPath]\fontsize{12pt}{14pt}\selectfont\bfseries\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000\uppercase}{}{0em}{}
 
 \newcommand{\runsubsection}[1]{
 \color{subheadings}\fontspec{Lato-Bold.ttf}[Path=\LatoPath]\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
